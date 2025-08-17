@@ -6,9 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kritigy/attendance-assignment.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kritigy/attendance-assignment/issues"
+  },
+  "homepage": "https://github.com/kritigy/attendance-assignment#readme",
   "devDependencies": {
     "live-server": "^1.2.2"
   }
