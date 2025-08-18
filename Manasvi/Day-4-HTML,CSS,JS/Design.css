@@ -1,0 +1,121 @@
+* { 
+    box-sizing: border-box; 
+}
+html { 
+    scroll-behavior: smooth; 
+}
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+    line-height: 1.5;
+    color: #222;
+    background: #fff7fb;
+}
+
+    
+header, main, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 16px;
+}
+header {
+    position: sticky; top: 0; z-index: 10;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    }
+h1 { margin: 0 0 8px; font-size: clamp(22px, 2.5vw, 32px); }
+h2 { margin: 0 0 8px; font-size: 20px; }
+h3 { margin: 12px 0 6px; font-size: 16px; }
+hr { border: 0; border-top: 1px solid #f0e6ee; margin: 16px 0; }
+
+/* Nav (keeps your table markup) */
+nav table { width: 100%; border-collapse: separate; border-spacing: 6px 0; }
+nav td { white-space: nowrap; }
+nav a {
+    display: inline-block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #333;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 999px;
+}
+nav a:hover { background: #ffe6f2; border-color: #ffd1e6; }
+
+
+main > article > section,
+main > aside {
+    background: #fff;
+    border: 1px solid #f0e6ee;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 16px 0;
+}
+@media (min-width: 960px) {
+main { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }
+}
+
+
+img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
+figure { margin: 12px 0 0; }
+figcaption { font-size: 14px; color: #666; }
+
+
+table { width: 100%; border-collapse: collapse; }
+th, td {
+    border: 1px solid #eee;
+    padding: 12px;
+    text-align: left;
+}
+tr:nth-child(even) { background: #fffafd; }
+
+form { display: grid; gap: 12px; }
+fieldset {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 12px;
+}
+legend { padding: 0 6px; font-weight: 600; }
+label { font-weight: 600; }
+input, select, textarea, button { font: inherit; }
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="date"],
+input[type="color"],
+input[type="range"],
+select, textarea {
+    width: min(480px, 100%);
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+}
+input:focus, select:focus, textarea:focus {
+    outline: 2px solid #ffd1e6;
+    border-color: #ff7fb8;
+}
+textarea { resize: vertical; }
+button {
+    padding: 10px 14px;
+    border: 0;
+    border-radius: 999px;
+    background: #ff7fb8;
+    color: #fff;
+    cursor: pointer;
+}
+button:hover { filter: brightness(0.98); }
+
+
+details {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 8px 10px;
+    background: #fff;
+    margin: 8px 0;
+}
+summary { cursor: pointer; font-weight: 600; }
+
+
+footer { text-align: center; color: #666; }
