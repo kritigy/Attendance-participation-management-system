@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beauty Bliss</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#fafafa; }
+    header { background:#ff99aa; color:white; padding:15px; text-align:center; position:sticky; top:0; z-index:1000; }
+    nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; }
+    nav a:hover { text-decoration:underline; }
+
+    section { padding:50px 20px; max-width:1100px; margin:auto; }
+    h2 { color:#d6336c; margin-bottom:15px; }
+    p { line-height:1.6; }
+
+    /* Products */
+    .products-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
+    .product-card { background:white; padding:15px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1); text-align:center; }
+    .product-card img { width:100%; height:200px; object-fit:cover; border-radius:10px; }
+    .product-card h4 { margin:10px 0; }
+    .product-card button { background:#d6336c; color:white; border:none; padding:10px 15px; border-radius:5px; cursor:pointer; }
+    .product-card button:hover { background:#a61e4d; }
+
+    /* Cart Sidebar */
+    #cart { position:fixed; right:-400px; top:0; width:350px; height:100%; background:white; box-shadow:-2px 0 5px rgba(0,0,0,0.2); padding:20px; transition:0.3s; overflow-y:auto; z-index:2000; }
+    #cart.open { right:0; }
+    #cart h3 { margin-top:0; }
+    .cart-item { display:flex; align-items:center; justify-content:space-between; margin:10px 0; }
+    .cart-item img { width:50px; border-radius:5px; }
+    .cart-total { font-weight:bold; margin-top:15px; }
+    .close-cart { float:right; cursor:pointer; font-weight:bold; color:red; }
+
+    footer { background:#333; color:white; text-align:center; padding:20px; margin-top:30px; }
+    .cart-btn { position:fixed; right:20px; bottom:20px; background:#d6336c; color:white; padding:15px 20px; border-radius:50%; border:none; cursor:pointer; font-size:18px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Beauty Bliss</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home">
+    <h2>Welcome to Beauty Bliss!</h2>
+    <p>Discover our exclusive range of beauty products, carefully crafted for your skincare, makeup, haircare, and fragrance needs.</p>
+    <img src="https://media.istockphoto.com/id/1658893205/photo/make-up-products-at-pink-background-top-view.jpg?s=612x612&w=0&k=20&c=z_oW0dg17wcluvcgwxmWXJqJCUpMXqY0IaqJGe9xZG0=" alt="Beauty Products" style="max-width:100%; border-radius:10px;">
+  </section>
+
+  <!-- Products Section -->
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="products-grid">
+      <!-- Skincare -->
+      <div class="product-card">
+        <img src="https://media.istockphoto.com/id/1427691158/photo/skincare-product-dermatology-and-black-woman-with-beauty-cream-for-a-healthy-clean-and.jpg?s=612x612&w=0&k=20&c=So9q7z_tWSx6-U8AMlqJCLyKFNq5aKLI7dsstRXV4I4=" alt="">
+        <h4>Hydrating Face Cream</h4>
+        <p>$25</p>
+        <button onclick="addToCart('Hydrating Face Cream',25,this.previousElementSibling.previousElementSibling.src)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://media.istockphoto.com/id/2054223203/photo/cosmetic-essence-in-glass-bottle-with-pipette-in-transparent-water-with-bubbles.jpg?s=612x612&w=0&k=20&c=chc0Zz12RXl9EAOES-5Ah4dowMsfOESkeGoCyhsgzlY=" alt="">
+        <h4>Revitalizing Serum</h4>
+        <p>$30</p>
+        <button onclick="addToCart('Revitalizing Serum',30,this.previousElementSibling.previousElementSibling.src)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://media.istockphoto.com/id/1371120808/photo/under-eye-hydrogel-patches-with-cucumber-on-a-table-skin-care-routine-facial-treatment.jpg?s=612x612&w=0&k=20&c=c-3XS7pGTrjTr-gOXPExpLc3F8v_k_btkPI96pABdVA=" alt="">
+        <h4>Brightening Peel Pads</h4>
+        <p>$20</p>
+        <button onclick="addToCart('Brightening Peel Pads',20,this.previousElementSibling.previousElementSibling.src)">Add to Cart</button>
+      </div>
+
+      <!-- Makeup -->
+      <div class="product-card">
+        <img src="https://media.istockphoto.com/id/2215983582/photo/various-types-of-foundation-beige-makeup-base.jpg?s=612x612&w=0&k=20&c=mv9ZSjfKUziWY29lnoOlrlZ3jlbcGz_2Kk00fSAj51k=" alt="">
+        <h4>Foundation</h4>
+        <p>$36</p>
+        <button onclick="addToCart('Foundation',36,this.previousElementSibling.previousElementSibling.src)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://media.istockphoto.com/id/1332033420/photo/various-cut-lipsticks-on-white-background-makeup-product-samples.jpg?s=612x612&w=0&k=20&c=v553zth7Zs0kPCsGuGj2l1Xy5sh0Xia93hNw7EFpun8=" alt="">
+        <h4>Matte Lipstick</h4>
+        <p>$15</p>
+        <button onclick="addToCart('Matte Lipstick',15,this.previousElementSibling.previousElementSibling.src)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://media.istockphoto.com/id/1323502149/photo/eyes-makeup-palette-sculpting-blush-highlighter-bronzer-cosmetic-products-black-square.jpg?s=612x612&w=0&k=20&c=dvuxGWusG3UQ71uhY_VlWCia027uWNgk9MsP4makiSY=" alt="">
+        <h4>Blush Palette</h4>
+        <p>$28</p>
+        <button onclick="addToCart('Blush Palette',28,this.previousElementSibling.previousElementSibling.src)">Add to Cart</button>
+      </div>
+
+      <!-- Haircare -->
+      <div class="product-card">
+        <img src="https://media.istockphoto.com/id/1546442230/photo/front-view-skin-care-products-on-wooden-decorative-piece.jpg?s=612x612&w=0&k=20&c=4qEsfqeNNAcrlzZOwMjs9mZzPBUf1ey22v0gSjt7NcY=" alt="">
+        <h4>Shampoo</h4>
+        <p>$12</p>
+        <button onclick="addToCart('Shampoo',12,this.previousElementSibling.previousElementSibling.src)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://media.istockphoto.com/id/1356587396/photo/shampoo-and-hair-conditioner-bottle-with-soapy-bubbles-beauty-hair-care-cosmetic-packaging.jpg?s=612x612&w=0&k=20&c=jM2woyBay4kGCbVsLVqvx1ZXWDU6KLAGGan3DMoTFgU=" alt="">
+        <h4>Conditioner</h4>
+        <p>$14</p>
+        <button onclick="addToCart('Conditioner',14,this.previousElementSibling.previousElementSibling.src)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://media.istockphoto.com/id/172181431/photo/hair-protection.jpg?s=612x612&w=0&k=20&c=CN5GtD0GknW42i7HVh6MjsM0GEFnq783rHqoI-V9Ib8=" alt="">
+        <h4>Hair Serum</h4>
+        <p>$20</p>
+        <button onclick="addToCart('Hair Serum',20,this.previousElementSibling.previousElementSibling.src)">Add to Cart</button>
+      </div>
+
+      <!-- Fragrance -->
+      <div class="product-card">
+        <img src="https://media.istockphoto.com/id/1138356608/photo/perfume-bottles-with-flowers.jpg?s=612x612&w=0&k=20&c=e7MG_VhjA8kqpunSav9EAuurkItRKLQFS-gkYy8eqxg=" alt="">
+        <h4>Rose Eau de Parfum</h4>
+        <p>$45</p>
+        <button onclick="addToCart('Rose Eau de Parfum',45,this.previousElementSibling.previousElementSibling.src)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://media.istockphoto.com/id/2202994684/photo/a-chic-bottle-of-perfume-with-a-floral-vanilla-scent-lies-on-a-white-background-with-vanilla.jpg?s=612x612&w=0&k=20&c=tnC0JmpPK95UCudPn2kbCs0p6Aoksk28xnCECejDV5w=" alt="">
+        <h4>Vanilla Body Mist</h4>
+        <p>$22</p>
+        <button onclick="addToCart('Vanilla Body Mist',22,this.previousElementSibling.previousElementSibling.src)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Beauty Bliss</h2>
+    <p>Beauty Bliss is dedicated to creating high-quality, cruelty-free beauty products that make you feel confident and radiant. Our mission is to provide products that enhance natural beauty while caring for your skin, hair, and overall well-being.</p>
+    <h3>Our Values</h3>
+    <ul>
+      <li>Quality & Safety</li>
+      <li>Eco-Friendly & Cruelty-Free</li>
+      <li>Customer Satisfaction</li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>We’d love to hear from you! Reach out for questions, feedback, or wholesale inquiries.</p>
+    <p><strong>Email:</strong> info@beautybliss.com</p>
+    <p><strong>Phone:</strong> 9808375353</p>
+    <p><strong>Address:</strong> Malaya road, Biratnagar, Nepal</p>
+
+    <form>
+      <label>Name:</label><br>
+      <input type="text" required><br><br>
+      <label>Email:</label><br>
+      <input type="email" required><br><br>
+      <label>Message:</label><br>
+      <textarea rows="5" required></textarea><br><br>
+      <input type="submit" value="Send">
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Beauty Bliss. All rights reserved.</p>
+  </footer>
+
+  <!-- Cart Sidebar -->
+  <div id="cart">
+    <span class="close-cart" onclick="toggleCart()">✖</span>
+    <h3>Your Cart</h3>
+    <div id="cart-items"></div>
+    <p class="cart-total">Total: $<span id="cart-total">0</span></p>
+  </div>
+
+  <!-- Floating Cart Button -->
+  <button class="cart-btn" onclick="toggleCart()">🛒</button>
+
+  <script>
+    let cart = [];
+
+    function addToCart(name, price, img) {
+      let existing = cart.find(item => item.name === name);
+      if(existing) {
+        existing.qty++;
+      } else {
+        cart.push({name, price, img, qty:1});
+      }
+      updateCart();
+    }
+
+    function updateCart() {
+      let cartItems = document.getElementById('cart-items');
+      cartItems.innerHTML = '';
+      let total = 0;
+      cart.forEach((item, i) => {
+        total += item.price * item.qty;
+        cartItems.innerHTML += `
+          <div class="cart-item">
+            <img src="${item.img}">
+            <span>${item.name} (${item.qty})</span>
+            <span>$${item.price * item.qty}</span>
+            <button onclick="removeItem(${i})">❌</button>
+          </div>
+        `;
+      });
+      document.getElementById('cart-total').innerText = total;
+    }
+
+    function removeItem(index) {
+      cart.splice(index,1);
+      updateCart();
+    }
+
+    function toggleCart() {
+      document.getElementById('cart').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
