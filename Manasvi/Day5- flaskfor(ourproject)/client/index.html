@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Attendance MVP – Flask</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Attendance MVP <span class="pill ok">Flask</span></h1>
+      <div class="sub">Create a session, join as a student, run a quick poll, and inspect results — all local and in-memory.</div>
+      <div class="grid">
+        <section class="card col-8">
+          <h2>Controls</h2>
+          <div class="row">
+            <label>Class Name</label>
+            <input id="className" type="text" value="Math 101" />
+            <button id="mk">Create Session</button>
+            <span class="badge" id="codeBox" title="Session Code">No session yet</span>
+          </div>
+          <div class="row">
+            <label>Student ID</label>
+            <input id="studentId" type="text" value="s1" />
+            <button id="jn" disabled>Join</button>
+            <span class="pill" id="attendeeCount">Attendees: 0</span>
+          </div>
+          <hr style="border: none; border-top: 1px solid var(--border); margin: 12px 0;" />
+          <div class="row">
+            <label>Poll Question</label>
+            <input id="q" type="text" value="2 + 2 ?" size="20"/>
+            <label>Options (comma)</label>
+            <input id="opts" type="text" value="3,4,5" size="20"/>
+            <label>Correct idx</label>
+            <input id="ci" type="number" value="1" size="3"/>
+            <button id="mkpoll" disabled>Create Poll</button>
+          </div>
+          <div class="row">
+            <label>Answer idx</label>
+            <input id="ans" type="number" value="1" size="3"/>
+            <button id="answer" disabled>Submit Answer</button>
+          </div>
+          <div class="row">
+            <button id="get" disabled>Get Session</button>
+            <button id="end" disabled>End Session</button>
+            <span id="statusPill" class="pill warn">Status: —</span>
+          </div>
+        </section>
+        <section class="card col-4">
+          <h2>Session Peek</h2>
+          <table class="kv" id="peek">
+            <tr><td>Class</td><td>—</td></tr>
+            <tr><td>Status</td><td>—</td></tr>
+            <tr><td>Attendees</td><td>0</td></tr>
+            <tr><td>Poll</td><td>—</td></tr>
+            <tr><td>Responses</td><td>0</td></tr>
+          </table>
+          <div class="hint">Hit “Get Session” to refresh. Correct index is zero-based.</div>
+        </section>
+        <section class="card col-12">
+          <h2>Responses</h2>
+          <pre id="out" class="log">Ready.</pre>
+        </section>
+      </div>
+    </div>
+    <script src="app.js" defer></script>
+  </body>
+</html>
