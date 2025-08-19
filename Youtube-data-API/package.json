@@ -1,0 +1,17 @@
+{
+"name": "yt-captions-gpt-summarizer",
+"version": "1.0.0",
+"type": "module",
+"main": "server.js",
+"scripts": {
+"dev": "node server.js"
+},
+"dependencies": {
+"body-parser": "^1.20.3",
+"dotenv": "^16.4.5",
+"express": "^4.19.2",
+"fs-extra": "^11.2.0",
+"googleapis": "^133.0.0",
+"openai": "^4.63.0"
+}
+}
